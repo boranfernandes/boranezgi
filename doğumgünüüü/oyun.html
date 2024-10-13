@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Balon Patlatma Oyunu</title>
+    <style>
+        /* Buton stil ayarları */
+        #startMusic {
+            padding: 15px 30px; /* Yükseklik ve genişlik artırıldı */
+            font-size: 18px; /* Yazı boyutu artırıldı */
+            background-color: #ff6347; /* Arka plan rengi */
+            color: white; /* Yazı rengi */
+            border: none; /* Kenar çerçevesi yok */
+            border-radius: 5px; /* Yuvarlatılmış köşeler */
+            cursor: pointer; /* İmleç değişimi */
+            transition: background-color 0.3s; /* Renk geçişi */
+        }
+
+        #startMusic:hover {
+            background-color: #ff4500; /* Üzerine gelindiğinde arka plan rengi değişir */
+        }
+    </style>
+</head>
+<body>
+    <h1>Seni Çok Seviyorummm ve BALONLARIN ÜSTÜNE DOKUNNN</h1>
+    <br>
+    <h1><b>Müziği BAŞLATMAYI UNUTMAAA</b></h1>
+    <button id="startMusic">Müziği Başlat</button> <!-- Müziği başlatacak buton -->
+    <div id="gameArea"></div>
+    <div id="photoContainer"></div> <!-- Fotoğrafların gösterileceği alan -->
+    
+    <audio id="backgroundMusic" loop>
+        <source src="yalin.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script src="script.js"></script>
+    <script>
+        const music = document.getElementById('backgroundMusic');
+        const startButton = document.getElementById('startMusic');
+
+        startButton.addEventListener('click', () => {
+            music.play(); // Butona tıklanınca müziği başlat
+        });
+
+       
+      
+    </script>
+</body>
+</html>

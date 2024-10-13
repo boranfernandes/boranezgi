@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('love.jpg'); /* Arka plan resmi */
+    background-size: cover; /* Resmi tam boy yapar */
+    background-position: bottom; /* Resmin alt kısmı görünecek şekilde ayarlandı */
+    color: #FFF; /* Varsayılan yazı rengi beyaz */
+}
+
+#gameArea {
+    width: 80vw;
+    height: 80vh;
+    position: relative;
+    border: 2px solid #FFF; /* Kenar çerçevesi beyaz */
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.7); /* %70 opak beyaz arka plan */
+}
+
+.balon {
+    width: 50px;
+    height: 70px;
+    background-color: transparent; /* Arka plan rengi kaldırıldı */
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.2s; /* Geçiş efekti eklendi */
+}
+
+.balon:hover {
+    transform: scale(1.45); /* Mouse ile üzerine gelindiğinde %30 büyür */
+}
+
+
+
+.ip {
+    width: 4px; /* İpin kalınlığı */
+    height: 70px; /* İpin uzunluğu */
+    background-color: #000; /* İpin rengi siyah */
+    position: absolute;
+    left: 50%;
+    bottom: -70px; /* İpin balonun altına yerleştiriyoruz */
+    transform: translateX(-50%); /* Ortalamak için */
+    border-radius: 2px; /* Yuvarlatılmış kenarlar */
+}
+
+.balon img {
+    width: 100%; /* Resmi balonun genişliğine uydur */
+    height: auto; /* Orantılı yükseklik */
+    position: absolute;
+    top: 0; /* Resmi balonun üst kısmına yerleştir */
+    left: 0; /* Sol kenara hizala */
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.explosion {
+    position: absolute;
+    width: 80px; /* Patlama görselinin boyutu */
+    height: 80px;
+    background-image: url('patlama.png'); /* Patlama görselinin URL'si */
+    background-size: cover;
+    animation: explode 0.5s forwards; /* Patlama animasyonu */
+    z-index: 10; /* Balonun üstünde görünmesi için */
+}
